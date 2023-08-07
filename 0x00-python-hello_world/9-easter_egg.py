@@ -1,0 +1,23 @@
+#!/usr/bin/python3
+s = " is better than If the implementation is to explain, "
+print(
+f"The Zen of Python, by Tim Peters\n"
+f"Beautiful{s[:16]}ugly.\n"
+f"Explicit{s[:16]}implicit.\n"
+f"Simple{s[:16]}complex.\n"
+f"Complex{s[:16]}complicated.\n"
+f"Flat{s[:16]}nested.\n"
+f"Sparse{s[:16]}dense.\n"
+f"Readability counts.\n"
+f"Special cases aren't special enough to break the rules.\n"
+f"Although practicality beats purity.\n"
+f"Errors should never pass silently.\n"
+f"Unless explicitly silenced.\n"
+f"In the face of ambiguity, refuse the temptation to guess.\n"
+f"There should be one-- and preferably only one --obvious way to do it.\n"
+f"Although that way may not be obvious at first unless you're Dutch.\n"
+f"Now{s[:16]}never.\n"
+f"Although never is often{s[3:16]}*right* now.\n"
+f"{s[16:41]}hard{s[40:]}it's a bad idea.\n"
+f"{s[16:41]}easy{s[40:]}it may be a good idea.\n"
+f"Namespaces are one honking great idea -- let's do more of those!")
