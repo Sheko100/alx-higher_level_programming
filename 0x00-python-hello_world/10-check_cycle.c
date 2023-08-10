@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "lists.h"
 
 /**
@@ -14,9 +13,9 @@ int check_cycle(listint_t *list)
 	listint_t *nodep;
 
 	nodep = list;
-	while (nodep != NULL)
+	while (nodep)
 	{
-		if (nodep->next == list)
+		if (nodep <= nodep->next)
 			return (1);
 		nodep = nodep->next;
 	}
