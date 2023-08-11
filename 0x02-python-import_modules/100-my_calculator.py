@@ -6,8 +6,8 @@ if __name__ == "__main__":
     arglen = len(arg)
     operr = "Unknown operator. Available operators: +, -, * and /"
     res = 0
-    if (arglen < 4):
-        print("Usage: {} <a> <operator> <b>".format(arg[0]))
+    if (arglen != 4):
+        print("Usage: {} <a> <operator> <b>".format(arg[0], file=sys.stderr))
         sys.exit(1)
     match arg[2]:
         case "+":
@@ -19,6 +19,6 @@ if __name__ == "__main__":
         case "/":
             res = div(int(arg[1]), int(arg[3]))
         case _:
-            print("{}".format(operr))
+            print("{}".format(operr), file=sys.stderr)
             sys.exit(1)
     print("{} {} {} = {}".format(arg[1], arg[2], arg[3], res))
