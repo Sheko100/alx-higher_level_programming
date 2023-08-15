@@ -2,7 +2,7 @@
 
 /**
  * print_python_list_info - prints info about python list object
- * @PyObject: pointer to a python object
+ * @p: pointer to a python object
  *
  * Return: void always
  */
