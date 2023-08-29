@@ -41,7 +41,7 @@ class Node:
             raise TypeError("next_node must be a Node object")
         else:
             self.__data = value
-            
+
 
 class SinglyLinkedList:
     """defines a singly linked list
