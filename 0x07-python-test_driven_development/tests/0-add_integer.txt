@@ -1,0 +1,52 @@
+The "0-add_integer" module
+==========================
+
+using "add_integer"
+-------------------
+
+First import the "add_integer" function from the "0-add_integer" module:
+
+	>>> add_integer = __import__("0-add_integer").add_integer
+
+A normal simple test:
+
+	>>> add_integer(5, 8)
+	13
+
+Testing if the function raises TypeError if arguments are neither int nor float:
+
+testing passing strings:
+
+	>>> add_integer("abc", "def")
+	Traceback (most recent call last):
+	TypeError: a must be an integer
+
+testing passing None:
+
+	>>> add_integer(None, None)
+	Traceback (most recent call last):
+	TypeError: a must be an integer
+
+testing passsing lists:
+
+	>>> ls1 = [1, 2, 3, 4]
+	>>> ls2 = [5, 6, 7, 8]
+	>>> add_integer(ls1, ls2)
+	Traceback (most recent call last):
+	TypeError: a must be an integer
+
+testing passing dict:
+
+	>>> dict1 = {"name": "John Doe", "Age": 26}
+	>>> dict2 = {"name": "Jane Doe", "Age": 26}
+	>>> add_integer(dict1, dict2)
+	Traceback (most recent call last):
+	TypeError: a must be an integer
+
+Testing if the second arg only is neither int nor float:
+
+testing strings:
+
+	>>> add_integer(85, "hello")
+	Traceback (most recent call last):
+	TypeError: b must be an integer
