@@ -1,0 +1,79 @@
+The "3-say_my_name" module
+==========================
+
+using say_my_name
+--------------------
+
+First import the "say_my_name" function from the "3-say_my_name" module:
+
+	>>> say_my_name = __import__("3-say_my_name").say_my_name
+
+A normal simple test:
+
+	>>> say_my_name("Jack", "Santa")
+	My name is Jack Santa
+
+Testing other data types than strings:
+
+Testing first_name:
+
+passing empty string:
+
+	>>> say_my_name("", "Santa")
+	Traceback (most recent call last):
+	TypeError: first_name can't be empty
+
+passing int | float | list | dictionary | tuble | None:
+
+	>>> say_my_name(3)
+	Traceback (most recent call last):
+	TypeError: first_name must be a string
+
+	>>> say_my_name(3.5)
+	Traceback (most recent call last):
+	TypeError: first_name must be a string
+
+	>>> say_my_name([])
+	Traceback (most recent call last):
+	TypeError: first_name must be a string
+
+	>>> say_my_name({"first name": "Jack"})
+	Traceback (most recent call last):
+	TypeError: first_name must be a string
+
+	>>> say_my_name((3.5))
+	Traceback (most recent call last):
+	TypeError: first_name must be a string
+
+	>>> say_my_name(None)
+	Traceback (most recent call last):
+	TypeError: first_name must be a string
+
+
+Testing last_name:
+
+passing int | float | list | dictionary | tuble | None:
+
+	>>> say_my_name("Jack", 3)
+	Traceback (most recent call last):
+	TypeError: last_name must be a string
+
+	>>> say_my_name("Jack", 3.5)
+	Traceback (most recent call last):
+	TypeError: last_name must be a string
+
+	>>> say_my_name("Jack", [])
+	Traceback (most recent call last):
+	TypeError: last_name must be a string
+
+	>>> say_my_name("Jack", {"first_name": "Jack"})
+	Traceback (most recent call last):
+	TypeError: last_name must be a string
+
+	>>> say_my_name("Jack", (3, 2))
+	Traceback (most recent call last):
+	TypeError: last_name must be a string
+
+	>>> say_my_name("Jack", None)
+	Traceback (most recent call last):
+	TypeError: last_name must be a string
