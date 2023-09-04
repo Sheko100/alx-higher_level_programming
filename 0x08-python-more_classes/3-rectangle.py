@@ -63,5 +63,7 @@ class Rectangle:
     def __str__(self):
         """returns rectangle shape with #
         """
-        rect = ((self.width * "#" + "\n") * self.height)[:-1]
+        rect = ""
+        if self.width > 0 and self.height > 0:
+            rect = ((self.width * "#" + "\n") * self.height)[:-1]
         return rect
