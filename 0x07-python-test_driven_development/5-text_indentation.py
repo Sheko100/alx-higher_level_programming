@@ -4,6 +4,14 @@
 
 
 def text_indentation(text):
+    """Adds a blank line after period, qustion mark and colon
+
+    Args:
+        text (str): a string to indent
+
+    Raises:
+        TypeError: if text is not a string
+    """
     if not isinstance(text, str):
         raise TypeError("text must be a string")
     textlen = len(text)
