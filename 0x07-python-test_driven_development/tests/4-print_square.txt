@@ -4,7 +4,7 @@ The "4-print_square" module
 using print_square
 --------------------
 
-First import the "say_my_name" function from the "3-say_my_name" module:
+First import the "print_square" function from the "4-print_square" module:
 
 	>>> print_square = __import__("4-print_square").print_square
 
