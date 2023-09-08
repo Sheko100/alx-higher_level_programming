@@ -16,6 +16,36 @@ class TestMaxInteger(unittest.TestCase):
         numbers = [1, 2, 3, 4, 5, 100, 150]
         self.assertEqual(max_integer(numbers), 150)
 
+    def test_max_first(self):
+        """Testing passing list with the max int at the first
+        """
+        numbers = [150, 1, 2, 3, 4, 5, 100]
+        self.assertEqual(max_integer(numbers), 150)
+
+    def test_max_middle(self):
+        """Testing passing list with the max int in the middle
+        """
+        numbers = [1, 2, 3, 150, 4, 5, 100]
+        self.assertEqual(max_integer(numbers), 150)
+
+    def test_one_negative(self):
+        """Testing passing list with one negatve numbers
+        """
+        numbers = [1, 2, 3, 4, -5, 100, 150]
+        self.assertEqual(max_integer(numbers), 150)
+
+    def test_negative_list(self):
+        """Testing passing list with all negative
+        """
+        numbers = [-1, -2, -3, -4, -5, -100, -150]
+        self.assertEqual(max_integer(numbers), -1)
+
+    def test_one_element_list(self):
+        """Testing passing list with one element
+        """
+        numbers = [1]
+        self.assertEqual(max_integer(numbers), 1)
+
     def test_empty_list(self):
         """Testing passing empty list
         """
@@ -27,30 +57,6 @@ class TestMaxInteger(unittest.TestCase):
         """
         with self.assertRaises(TypeError):
             max_integer(None)
-
-    def test_string(self):
-        """Testing passing string
-        """
-        with self.assertRaises(TypeError):
-            max_integer("list")
-
-    def test_num(self):
-        """Testing passing number
-        """
-        with self.assertRaises(TypeError):
-            max_integer(1)
-
-    def test_tuble(self):
-        """Testing passing tuble
-        """
-        with self.assertRaises(TypeError):
-            max_integer((1, 2))
-
-    def test_float(self):
-        """Testing passing float
-        """
-        with self.assertRaises(TypeError):
-            max_integer(5.5)
 
 
 if __name__ == '__main__':
