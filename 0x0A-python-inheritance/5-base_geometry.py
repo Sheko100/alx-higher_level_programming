@@ -2,5 +2,6 @@
 """Module that presents BaseGeometry class
 """
 
+
 class BaseGeometry:
     pass
