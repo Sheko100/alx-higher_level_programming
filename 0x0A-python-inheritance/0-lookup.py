@@ -10,7 +10,7 @@ def lookup(obj):
         obj (class): a class to look up its instance
     """
     attr = []
-    if isinstance(obj, object)
+    if isinstance(obj, object):
         newobj = obj()
         attr = newobj.__dir__()
         attr.sort()
