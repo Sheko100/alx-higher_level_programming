@@ -1,0 +1,118 @@
+The "1-my_list" module
+==========================
+
+using "MyList" class
+--------------------
+
+First importing
+
+	>>> MyList = __import__("1-my_list").MyList
+
+Making an object instance
+
+	>>> my_list = MyList()
+	>>> isinstance(my_list, MyList)
+	True
+
+Testing that it's a list
+
+	>>> isinstance(my_list, list)
+	True
+
+using "print_sorted" method 
+---------------------------
+
+Populating the array with positive numbers
+
+	>>> my_list.append(10)
+	>>> my_list.append(35)
+	>>> my_list.append(6)
+	>>> my_list.append(18)
+	>>> my_list.append(37)
+
+Testing printing the original list
+
+	>>> print(my_list)
+	[10, 35, 6, 18, 37]
+
+Testing calling print_sorted method
+
+	>>> my_list.print_sorted()
+	[6, 10, 18, 35, 37]
+
+Testing printing the original list after calling print sorted method
+
+	>>> print(my_list)
+	[10, 35, 6, 18, 37]
+
+Clear the list
+
+	>>> my_list.clear()
+	>>> print(my_list)
+	[]
+
+Populating the list with negative numbers
+
+	>>> my_list.append(-2)
+	>>> my_list.append(-8)
+	>>> my_list.append(-20)
+	>>> my_list.append(-46)
+	>>> my_list.append(-6)
+
+Testing printing the list before sorting
+
+	>>> print(my_list)
+	[-2, -8, -20, -46, -6]
+
+Testing calling print_sorted method
+
+	>>> my_list.print_sorted()
+	[-46, -20, -8, -6, -2]
+
+Clear the list
+
+	>>> my_list.clear()
+	>>> print(my_list)
+	[]
+
+Populating the list with mix of positive and negative numbers
+
+	>>> my_list.append(64)
+	>>> my_list.append(-8)
+	>>> my_list.append(3)
+	>>> my_list.append(6)
+	>>> my_list.append(-6)
+
+Testing printing the list before sorting
+
+	>>> print(my_list)
+	[64, -8, 3, 6, -6]
+
+Testing calling print_sorted method
+
+	>>> my_list.print_sorted()
+	[-8, -6, 3, 6, 64]
+
+Clear the list
+
+	>>> my_list.clear()
+	>>> print(my_list)
+	[]
+
+Populating the list with some same numbers
+
+	>>> my_list.append(64)
+	>>> my_list.append(-8)
+	>>> my_list.append(3)
+	>>> my_list.append(64)
+	>>> my_list.append(-6)
+
+Testing printing the list before sorting
+
+	>>> print(my_list)
+	[64, -8, 3, 64, -6]
+
+Testing calling print_sorted method
+
+	>>> my_list.print_sorted()
+	[-8, -6, 3, 64, 64]
