@@ -9,4 +9,7 @@ def lookup(obj):
     Args:
         obj (class): a class to look up its instance
     """
-    return (obj.__dir__(obj))
+    newobj = obj()
+    attr = newobj.__dir__()
+    attr.sort()
+    return (attr)
