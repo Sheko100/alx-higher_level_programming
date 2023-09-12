@@ -1,0 +1,60 @@
+The "7-base_geometry" module
+==========================
+
+using "BaseGeometry" class
+--------------------
+
+First importing
+
+	>>> bg = __import__("7-base_geometry").BaseGeometry
+
+Making an object instance
+
+	>>> new_bg = bg()
+	>>> isinstance(new_bg, bg)
+	True
+
+using "integer_validator" method
+--------------------------------
+
+Testing zero as value:
+
+	>>> new_bg.integer_validator("value", 0)
+	Traceback (most recent call last):
+	ValueError: value must be greater than 0
+
+Testing nagtive number as value:
+
+	>>> new_bg.integer_validator("value", -5)
+	Traceback (most recent call last):
+	ValueError: value must be greater than 0
+
+Testing string as value:
+
+	>>> new_bg.integer_validator("value", "number")
+	Traceback (most recent call last):
+	TypeError: value must be an integer
+
+Testing list as value:
+
+	>>> new_bg.integer_validator("value", [1, 2])
+	Traceback (most recent call last):
+	TypeError: value must be an integer
+
+Testing dictionary as value:
+
+	>>> new_bg.integer_validator("value", {"name": "Goku"})
+	Traceback (most recent call last):
+	TypeError: value must be an integer
+
+Testing tuble as value:
+
+	>>> new_bg.integer_validator("value", (1, 2))
+	Traceback (most recent call last):
+	TypeError: value must be an integer
+
+Testing None as value:
+
+	>>> new_bg.integer_validator("value", None)
+	Traceback (most recent call last):
+	TypeError: value must be an integer
