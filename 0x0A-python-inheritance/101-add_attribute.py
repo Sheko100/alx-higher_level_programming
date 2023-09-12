@@ -11,5 +11,3 @@ def add_attribute(obj, name, value):
         value (str): attribute value
     """
     obj.__setattr__(name, value)
-    obj.__setattr__("hello", "world")
-    print(dir(obj))
