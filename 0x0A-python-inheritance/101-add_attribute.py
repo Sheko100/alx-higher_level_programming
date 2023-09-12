@@ -2,6 +2,7 @@
 """Module to add attribute to an object if allowed
 """
 
+
 def add_attribute(obj, name, value):
     """adds attribute to object if allowed
 
