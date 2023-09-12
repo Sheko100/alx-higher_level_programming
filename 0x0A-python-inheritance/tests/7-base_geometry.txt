@@ -14,8 +14,36 @@ Making an object instance
 	>>> isinstance(new_bg, bg)
 	True
 
+using "area" method
+-------------------
+
+Testing normal behavior:
+
+	>>> new_bg.area()
+	Traceback (most recent call last):
+	Exception: area() is not implemented
+
 using "integer_validator" method
 --------------------------------
+
+Testing without args:
+
+	>>> new_bg.integer_validator()
+	Traceback (most recent call last):
+	TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+Testing with one arg:
+
+	>>> new_bg.integer_validator("value")
+	Traceback (most recent call last):
+	TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
+
+Testing with boolean:
+
+	>>> new_bg.integer_validator("bool", True)
+	Traceback (most recent call last):
+	TypeError: bool must be an integer
+
 
 Testing zero as value:
 
@@ -44,6 +72,12 @@ Testing list as value:
 Testing dictionary as value:
 
 	>>> new_bg.integer_validator("value", {"name": "Goku"})
+	Traceback (most recent call last):
+	TypeError: value must be an integer
+
+Testing set as value:
+
+	>>> new_bg.integer_validator("value", {5, 4})
 	Traceback (most recent call last):
 	TypeError: value must be an integer
 
