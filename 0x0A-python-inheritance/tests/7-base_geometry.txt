@@ -26,11 +26,9 @@ Testing normal behavior:
 using "integer_validator" method
 --------------------------------
 
-Testing without args:
+Testing normal behavior:
 
-	>>> new_bg.integer_validator()
-	Traceback (most recent call last):
-	TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
+	>>> new_bg.integer_validator("value", 1)
 
 Testing with boolean:
 
