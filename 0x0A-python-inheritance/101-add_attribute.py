@@ -11,4 +11,7 @@ def add_attribute(obj, name, value):
         name (str): attribute name
         value (str): attribute value
     """
-    obj.__setattr__(name, value)
+    if "__dict__" in dir(obj):
+        obj.name = value
+    else:
+        raise TypeError("can't add new attribute")
