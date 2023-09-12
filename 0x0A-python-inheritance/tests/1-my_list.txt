@@ -22,6 +22,11 @@ Testing that it's a list
 using "print_sorted" method 
 ---------------------------
 
+Testing empty list:
+
+	>>> my_list.print_sorted()
+	[]
+
 Populating the array with positive numbers
 
 	>>> my_list.append(10)
