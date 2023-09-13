@@ -2,6 +2,7 @@
 """Module to write to a file
 """
 
+
 def write_file(filename="", text=""):
     """writes a string to an UTF8 text file
 
