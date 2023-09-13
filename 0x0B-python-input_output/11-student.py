@@ -45,4 +45,5 @@ class Student:
         Args:
             json: attributes dictionary in JSON string
         """
-        self.__dict__ = json
+        if len(json) > 0:
+            self.__dict__ = json
