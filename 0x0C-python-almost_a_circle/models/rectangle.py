@@ -128,13 +128,7 @@ class Rectangle(Base):
         id = self.id
         width, height, x, y = self.width, self.height, self.x, self.y
 
-        rectstr = "[{}] ({}) {}/{} - ".format(name, id, x, y)
-        wxhstr = "{}/{}".format(width, height)
-
-        if width == height:
-            wxhstr = "{}".format(width)
-
-        return (rectstr + wxhstr)
+        return "[{}] ({}) {}/{} - {}/{}".format(name, id, x, y, width, height)
 
     def update(self, *args, **kwargs):
         """Updates the rectangle attributes
