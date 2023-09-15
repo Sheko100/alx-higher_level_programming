@@ -182,11 +182,10 @@ class TestRectangleMethods(unittest.TestCase):
         rect3 = Rectangle(5, 2, 3, 1, 55)
         self.assertEqual(str(rect3), "[Rectangle] (55) 3/1 - 5/2")
 
-    def test_update_rect(self):
+    def test_update_rect_args(self):
         """Test for the arguments list of update method"""
 
-        newid = 200
-        newwidth, newheight, newx, newy = 45, 30, 40, 20
+        newid, newwidth, newheight, newx, newy = 200, 45, 30, 40, 20
 
         rect3 = Rectangle(5, 2, 3, 1)
 
@@ -214,6 +213,55 @@ class TestRectangleMethods(unittest.TestCase):
         self.assertEqual(newheight, rect3.height)
         self.assertEqual(newx, rect3.x)
         self.assertEqual(newy, rect3.y)
+
+    def test_update_rect_kwargs_with_args(self):
+        """Test for the keyword arguments list of update method
+        with the presence of *args
+        """
+
+        newid, newwidth, newheight, newx, newy = 200, 45, 30, 40, 20
+        args = (201, 46, 31, 41, 21)
+
+
+        rect3.update(
+                args, 
+                width=newwidth, 
+                x=newx, 
+                height=newheight,
+                id=newid,
+                y=newy
+        )
+        
+        self.assertNotEqual(newwidth, rect3.width)
+        self.assertNotEqual(newx, rect3.x)
+        self.assertNotEqual(newheight, rect3.height)
+        self.assertNotEqual(newid, rect3.id)
+        self.assertNotEqual(newy, rect3.y)
+
+    def test_update_rect_kwargs_with_empty_args(self):
+        """Test for the keyword arguments list of update method
+        if the *args is empty
+        """
+
+        newid, newwidth, newheight, newx, newy = 200, 45, 30, 40, 20
+        args = ()
+
+        rect3 = Rectangle(5, 2, 3, 1)
+
+        rect3.update(
+                args, 
+                width=newwidth, 
+                x=newx, 
+                height=newheight,
+                id=newid,
+                y=newy
+        )
+        self.assertEqual(newwidth, rect3.width)
+        self.assertEqual(newx, rect3.x)
+        self.assertEqual(newheight, rect3.height)
+        self.assertEqual(newid, rect3.id)
+        self.assertEqual(newy, rect3.y)
+
 
 if __name__ == '__main__':
     unittest.main()
