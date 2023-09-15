@@ -28,3 +28,46 @@ class TestSquare(unittest.TestCase):
 
         sq1 = Square(size, x, y, id)
         self.assertEqual(str(sq1), "[Square] (55) 5/3 - 10")
+
+
+class TestSquareSize(unittest.TestCase):
+    """Tests for the size attribute of the Square class"""
+
+    def test_normal_size(self):
+        """Test for the normal behavior of passing integer size"""
+
+        sq1 = Square(10, 5, 3)
+        self.assertEqual(sq1.size, 10)
+
+    def test_negative_or_zero_size(self):
+        """Test for handling the nagative and zero values"""
+
+        with self.assertRaises(ValueError):
+            sq1 = Square(0, 2, 3)
+
+        with self.assertRaises(ValueError):
+            sq1 = Square(-1, 2, 3)
+
+    def test_not_int_size(self):
+        """Test for the cases when the passing value of size is not int"""
+
+        with self.assertRaises(TypeError):
+            sq1 = Square("5", 2, 3)
+
+        with self.assertRaises(TypeError):
+            sq1 = Square(2.5, 2, 1)
+
+        with self.assertRaises(TypeError):
+            sq1 = Square((5, 5), 2, 3)
+
+        with self.assertRaises(TypeError):
+            sq1 = Square([], 2, 3)
+
+        with self.assertRaises(TypeError):
+            sq1 = Square({"width: 5"}, 2, 3)
+
+        with self.assertRaises(TypeError):
+            sq1 = Square({2, 5}, 2, 3)
+
+        with self.assertRaises(TypeError):
+            sq1 = Square(None, 2, 3)
