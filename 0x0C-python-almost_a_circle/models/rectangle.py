@@ -114,11 +114,15 @@ class Rectangle(Base):
     def display(self):
         """Displays the rectangle with # on the standard output
         """
-
-        cols = self.width
+        
+        cols = self.width * "#"
         rows = self.height
+        colmargin = self.x * " "
+        rowmargin = self.y * "\n"
+
+        print(rowmargin, end="")
         for row in range(rows):
-            print(cols * "#")
+            print("{}{}".format(colmargin, cols))
 
     def __str__(self):
         name = self.__class__.__name__
