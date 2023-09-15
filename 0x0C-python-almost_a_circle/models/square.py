@@ -69,7 +69,6 @@ class Square(Rectangle):
                     self.y = arg
                 argn += 1
         else:
-            print(args)
             for key in kwargs:
                 value = kwargs[key]
                 setattr(self, key, value)
