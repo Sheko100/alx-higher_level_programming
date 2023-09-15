@@ -189,7 +189,7 @@ class TestRectangleMethods(unittest.TestCase):
     def test_update_rect_args(self):
         """Test for the arguments list of update method"""
 
-        newid, newwidth, newheight, newx, newy = 200, 45, 30, 40, 20
+        newid, newsize, newx, newy = 200, 45, 40, 20
 
         rect3 = Rectangle(5, 2, 3, 1)
 
@@ -247,7 +247,6 @@ class TestRectangleMethods(unittest.TestCase):
         """
 
         newid, newwidth, newheight, newx, newy = 200, 45, 30, 40, 20
-        args = ()
 
         rect3 = Rectangle(5, 2, 3, 1)
 
