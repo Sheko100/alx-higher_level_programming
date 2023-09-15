@@ -16,7 +16,6 @@ class Rectangle(Base):
             height (int): rectangle height
             x (int): rectangle x axis
             y (int): rectangle y axis
-            
         """
         super().__init__(id)
         self.width = width
@@ -114,7 +113,7 @@ class Rectangle(Base):
     def display(self):
         """Displays the rectangle with # on the standard output
         """
-        
+
         cols = self.width * "#"
         rows = self.height
         colmargin = self.x * " "
@@ -128,7 +127,14 @@ class Rectangle(Base):
         name = self.__class__.__name__
         id = self.id
         width, height, x, y = self.width, self.height, self.x, self.y
-        return ("[{}] ({}) {}/{} - {}/{}".format(name, id, x, y, width, height))
+
+        rectstr = "[{}] ({}) {}/{} - ".format(name, id, x, y)
+        wxhstr = "{}/{}".format(width, height)
+
+        if width == height:
+            wxhstr = "{}".format(width)
+
+        return (rectstr + wxhstr)
 
     def update(self, *args, **kwargs):
         """Updates the rectangle attributes

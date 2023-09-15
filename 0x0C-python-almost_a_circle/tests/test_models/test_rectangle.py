@@ -47,6 +47,7 @@ class TestRectangleWidth(unittest.TestCase):
         with self.assertRaises(TypeError):
             rect3 = Rectangle(None, 2, 3, 1)
 
+
 class TestRectangleHeight(unittest.TestCase):
     """Tests for the height attribute of the Rectangle class"""
 
@@ -72,7 +73,7 @@ class TestRectangleHeight(unittest.TestCase):
             rect3 = Rectangle(5, "2", 3, 1)
 
         with self.assertRaises(TypeError):
-            rect3 = Rectangle(5, 2.5 , 3, 1)
+            rect3 = Rectangle(5, 2.5, 3, 1)
 
         with self.assertRaises(TypeError):
             rect3 = Rectangle(5, (2, 2), 3, 1)
@@ -88,6 +89,7 @@ class TestRectangleHeight(unittest.TestCase):
 
         with self.assertRaises(TypeError):
             rect3 = Rectangle(5, None, 3, 1)
+
 
 class TestRectangleX(unittest.TestCase):
     """Tests for the x axis attribute of the Rectangle class"""
@@ -111,7 +113,7 @@ class TestRectangleX(unittest.TestCase):
             rect3 = Rectangle(5, 2, "3", 1)
 
         with self.assertRaises(TypeError):
-            rect3 = Rectangle(5, 2 , 3.5, 1)
+            rect3 = Rectangle(5, 2, 3.5, 1)
 
         with self.assertRaises(TypeError):
             rect3 = Rectangle(5, 2, (3, 3), 1)
@@ -127,6 +129,7 @@ class TestRectangleX(unittest.TestCase):
 
         with self.assertRaises(TypeError):
             rect3 = Rectangle(5, 2, None, 1)
+
 
 class TestRectangleY(unittest.TestCase):
     """Tests for the y axis attribute of the Rectangle class"""
@@ -150,7 +153,7 @@ class TestRectangleY(unittest.TestCase):
             rect3 = Rectangle(5, 2, 3, "1")
 
         with self.assertRaises(TypeError):
-            rect3 = Rectangle(5, 2 , 3, 1.5)
+            rect3 = Rectangle(5, 2, 3, 1.5)
 
         with self.assertRaises(TypeError):
             rect3 = Rectangle(5, 2, 3, (1, 1))
@@ -166,6 +169,7 @@ class TestRectangleY(unittest.TestCase):
 
         with self.assertRaises(TypeError):
             rect3 = Rectangle(5, 2, 3, None)
+
 
 class TestRectangleMethods(unittest.TestCase):
     """Tests for the methods of the Rectangle class"""
@@ -222,16 +226,15 @@ class TestRectangleMethods(unittest.TestCase):
         newid, newwidth, newheight, newx, newy = 200, 45, 30, 40, 20
         args = (201, 46, 31, 41, 21)
 
-
         rect3.update(
-                args, 
-                width=newwidth, 
-                x=newx, 
+                args,
+                width=newwidth,
+                x=newx,
                 height=newheight,
                 id=newid,
                 y=newy
         )
-        
+
         self.assertNotEqual(newwidth, rect3.width)
         self.assertNotEqual(newx, rect3.x)
         self.assertNotEqual(newheight, rect3.height)
@@ -249,9 +252,9 @@ class TestRectangleMethods(unittest.TestCase):
         rect3 = Rectangle(5, 2, 3, 1)
 
         rect3.update(
-                args, 
-                width=newwidth, 
-                x=newx, 
+                args,
+                width=newwidth,
+                x=newx,
                 height=newheight,
                 id=newid,
                 y=newy
