@@ -15,8 +15,7 @@ class TestSquare(unittest.TestCase):
         size, x, y, id = 10, 5, 3, 55
 
         sq1 = Square(size, x, y, id)
-        self.assertEqual(sq1.width, size)
-        self.assertEqual(sq1.height, size)
+        self.assertEqual(sq1.size, size)
         self.assertEqual(sq1.x, x)
         self.assertEqual(sq1.y, y)
         self.assertEqual(sq1.id, 55)
@@ -29,6 +28,72 @@ class TestSquare(unittest.TestCase):
         sq1 = Square(size, x, y, id)
         self.assertEqual(str(sq1), "[Square] (55) 5/3 - 10")
 
+    def test_update_square_args(self):
+        """Test for the arguments list of update method"""
+
+        newid, newsize, newx, newy = 200, 45, 40, 20
+
+        sq1 = Square(5, 2, 3, 1)
+
+        sq1.update(newid)
+        self.assertEqual(newid, sq1.id)
+
+        sq1.update(newid, newsize)
+        self.assertEqual(newid, sq1.id)
+        self.assertEqual(newsize, sq1.size)
+
+        sq1.update(newid, newsize, newx)
+        self.assertEqual(newid, sq1.id)
+        self.assertEqual(newsize, sq1.size)
+        self.assertEqual(newx, sq1.x)
+
+        sq1.update(newid, newsize, newx, newy)
+        self.assertEqual(newid, sq1.id)
+        self.assertEqual(newsize, sq1.size)
+        self.assertEqual(newx, sq1.x)
+        self.assertEqual(newy, sq1.y)
+
+    def test_update_square_kwargs_with_args(self):
+        """Test for the keyword arguments list of update method
+        with the presence of *args
+        """
+
+        newid, newsize, newx, newy = 200, 45, 40, 20
+        args = (201, 46, 31, 41, 21)
+
+        sq1 = Square(5, 2, 3, 1)
+
+        sq1.update(
+                args,
+                x=newx,
+                size=newsize,
+                id=newid,
+                y=newy
+        )
+
+        self.assertNotEqual(newsize, sq1.size)
+        self.assertNotEqual(newx, sq1.x)
+        self.assertNotEqual(newid, sq1.id)
+        self.assertNotEqual(newy, sq1.y)
+
+    def test_update_square_kwargs_with_empty_args(self):
+        """Test for the keyword arguments list of update method
+        if the *args is empty
+        """
+
+        newid, newsize, newx, newy = 200, 45, 40, 20
+        sq1 = Square(5, 2, 3, 1)
+
+        sq1.update(
+                x=newx,
+                size=newsize,
+                id=newid,
+                y=newy
+        )
+        self.assertEqual(newsize, sq1.size)
+        self.assertEqual(newx, sq1.x)
+        self.assertEqual(newid, sq1.id)
+        self.assertEqual(newy, sq1.y)
 
 class TestSquareSize(unittest.TestCase):
     """Tests for the size attribute of the Square class"""
