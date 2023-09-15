@@ -119,3 +119,9 @@ class Rectangle(Base):
         rows = self.height
         for row in range(rows):
             print(cols * "#")
+
+    def __str__(self):
+        name = self.__class__.__name__
+        id = self.id
+        width, height, x, y = self.width, self.height, self.x, self.y
+        return ("[{}] ({}) {}/{} - {}/{}".format(name, id, x, y, width, height))
