@@ -105,8 +105,17 @@ class Rectangle(Base):
         self.__y = value
 
     def area(self):
-        """gets the area of the rectangle
+        """Gets the area of the rectangle
 
         Returns: the area of the rectangle
         """
         return self.width * self.height
+
+    def display(self):
+        """Displays the rectangle with # on the standard output
+        """
+
+        cols = self.width
+        rows = self.height
+        for row in range(rows):
+            print(cols * "#")
