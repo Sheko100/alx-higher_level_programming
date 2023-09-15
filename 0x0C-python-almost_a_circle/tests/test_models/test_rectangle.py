@@ -157,3 +157,16 @@ class TestRectangle(unittest.TestCase):
 
         with self.assertRaises(TypeError):
             rect3 = Rectangle(5, 2, 3, None)
+
+    def test_area(self):
+        """Test for the area output"""
+
+        rect3 = Rectangle(5, 2, 3, 1)
+        self.assertEqual(rect3.area(), 10)
+
+    def test_rect_str(self):
+        """Test for the rect str representation"""
+
+        rect3 = Rectangle(5, 2, 3, 1, 55)
+        self.assertEqual(str(rect3), "[Rectangle] (55) 3/1 - 5/2")
+
