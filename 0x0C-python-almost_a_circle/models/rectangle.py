@@ -164,7 +164,7 @@ class Rectangle(Base):
         """
         keys = ["id", "width", "height", "x", "y"]
         dct = {}
-        
+
         for key in keys:
             dct[key] = getattr(self, key)
 
