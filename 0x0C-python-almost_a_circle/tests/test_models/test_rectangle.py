@@ -189,7 +189,7 @@ class TestRectangleMethods(unittest.TestCase):
     def test_update_rect_args(self):
         """Test for the arguments list of update method"""
 
-        newid, newsize, newx, newy = 200, 45, 40, 20
+        newid, newwidth, newheight, newx, newy = 200, 45, 30, 40, 20
 
         rect3 = Rectangle(5, 2, 3, 1)
 
@@ -226,6 +226,8 @@ class TestRectangleMethods(unittest.TestCase):
         newid, newwidth, newheight, newx, newy = 200, 45, 30, 40, 20
         args = (201, 46, 31, 41, 21)
 
+        rect3 = Rectangle(5, 2, 3, 1)
+
         rect3.update(
                 args,
                 width=newwidth,
@@ -251,7 +253,6 @@ class TestRectangleMethods(unittest.TestCase):
         rect3 = Rectangle(5, 2, 3, 1)
 
         rect3.update(
-                args,
                 width=newwidth,
                 x=newx,
                 height=newheight,
@@ -264,6 +265,27 @@ class TestRectangleMethods(unittest.TestCase):
         self.assertEqual(newid, rect3.id)
         self.assertEqual(newy, rect3.y)
 
+    def test_rect_to_dict(self):
+        """Test for checking the dictionary representation of the to_dict
+        method
+        """
+ 
+        rect3 = Rectangle(5, 2, id=55)
+        dct = rect3.to_dictionary()
+        self.assertEqual(dct["id"], 55)
+        self.assertEqual(dct["width"], 5)
+        self.assertEqual(dct["height"], 2)
+        self.assertEqual(dct["x"], 0)
+        self.assertEqual(dct["y"], 0)
+        
+
+        rect3 = Rectangle(5, 2, y=1, x=3, id=55)
+        dct = rect3.to_dictionary()
+        self.assertEqual(dct["id"], 55)
+        self.assertEqual(dct["width"], 5)
+        self.assertEqual(dct["height"], 2)
+        self.assertEqual(dct["x"], 3)
+        self.assertEqual(dct["y"], 1)
 
 if __name__ == '__main__':
     unittest.main()
