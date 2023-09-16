@@ -32,7 +32,7 @@ class Base:
             list_dictionaries (list): list of dictionaries
 
         Returns:
-            str: JSON respresentation on success or 
+            str: JSON respresentation on success or
             empty list if list_dictionaries is empty or None
         """
 
