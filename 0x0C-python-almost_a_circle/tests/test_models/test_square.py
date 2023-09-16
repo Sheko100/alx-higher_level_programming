@@ -95,6 +95,7 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(newid, sq1.id)
         self.assertEqual(newy, sq1.y)
 
+
 class TestSquareSize(unittest.TestCase):
     """Tests for the size attribute of the Square class"""
 
@@ -136,3 +137,26 @@ class TestSquareSize(unittest.TestCase):
 
         with self.assertRaises(TypeError):
             sq1 = Square(None, 2, 3)
+
+    def test_square_to_dict(self):
+        """Test for checking the dictionary representation of
+        the to_dictionary method
+        """
+
+        sq1 = Square(5, id=55)
+        dct = sq1.to_dictionary()
+        self.assertEqual(dct["id"], 55)
+        self.assertEqual(dct["size"], 5)
+        self.assertEqual(dct["x"], 0)
+        self.assertEqual(dct["y"], 0)
+
+        sq1 = Square(5, y=1, x=3, id=55)
+        dct = sq1.to_dictionary()
+        self.assertEqual(dct["id"], 55)
+        self.assertEqual(dct["size"], 5)
+        self.assertEqual(dct["x"], 3)
+        self.assertEqual(dct["y"], 1)
+
+
+if __name__ == '__main__':
+    unittest.main()
