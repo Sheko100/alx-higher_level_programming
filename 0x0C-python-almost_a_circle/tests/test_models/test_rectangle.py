@@ -269,7 +269,7 @@ class TestRectangleMethods(unittest.TestCase):
         """Test for checking the dictionary representation of the to_dict
         method
         """
- 
+
         rect3 = Rectangle(5, 2, id=55)
         dct = rect3.to_dictionary()
         self.assertEqual(dct["id"], 55)
@@ -277,7 +277,6 @@ class TestRectangleMethods(unittest.TestCase):
         self.assertEqual(dct["height"], 2)
         self.assertEqual(dct["x"], 0)
         self.assertEqual(dct["y"], 0)
-        
 
         rect3 = Rectangle(5, 2, y=1, x=3, id=55)
         dct = rect3.to_dictionary()
@@ -286,6 +285,7 @@ class TestRectangleMethods(unittest.TestCase):
         self.assertEqual(dct["height"], 2)
         self.assertEqual(dct["x"], 3)
         self.assertEqual(dct["y"], 1)
+
 
 if __name__ == '__main__':
     unittest.main()
