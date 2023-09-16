@@ -3,7 +3,8 @@
 """
 import unittest
 from models.base import Base
-
+from models.rectangle import Rectangle
+from models.square import Square
 
 class TestBase(unittest.TestCase):
     """Tests for the Base class"""
@@ -72,6 +73,31 @@ class TestBase(unittest.TestCase):
         dictliststr = obj4.to_json_string(dictlist)
 
         self.assertEqual(dictliststr,"[{}, {}, {}]")
+
+    def test_save_to_file(self):
+        """Test for the normal behavior of the save_to_file method"""
+
+        rect1 = Rectangle(10, 5, 4, 2, 55)
+        rect2 = Rectangle(20, 10, 5, 7, 88)
+        sq1 = Square(10, 4, 2, 55)
+        sq2 = Square(20, 5, 7, 88)
+
+        rectlist = [rect1, rect2]
+        sqlist = [sq1, sq2]
+        rectdict = [rect1.to_dictionary(), rect2.to_dictionary()]
+        sqdict = [sq1.to_dictionary(), sq2.to_dictionary()]
+
+        Rectangle.save_to_file(rectlist)
+        with open("Rectangle.json") as file:
+            content = file.read()
+        rectjson = Rectangle.to_json_string(rectdict)
+        self.assertEqual(rectjson, content)
+
+        Square.save_to_file(sqlist)
+        with open("Square.json") as file:
+            content = file.read()
+        sqjson = Square.to_json_string(sqdict)
+        self.assertEqual(sqjson, content)
 
 
 if __name__ == '__main__':
