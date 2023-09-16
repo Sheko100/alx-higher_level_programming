@@ -6,6 +6,7 @@ from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
 
+
 class TestBase(unittest.TestCase):
     """Tests for the Base class"""
 
@@ -50,7 +51,7 @@ class TestBase(unittest.TestCase):
         obj4 = Base()
 
         dictliststr = obj4.to_json_string(dictlist)
-        self.assertEqual(dictliststr,"[]")
+        self.assertEqual(dictliststr, "[]")
 
     def test_to_json_string_none_list(self):
         """Test for passing None intead of list to
@@ -60,7 +61,7 @@ class TestBase(unittest.TestCase):
         obj4 = Base()
         dictliststr = obj4.to_json_string(None)
 
-        self.assertEqual(dictliststr,"[]")
+        self.assertEqual(dictliststr, "[]")
 
     def test_to_json_string_empty_dict(self):
         """Test for passing list of empty dictionaries to
@@ -72,7 +73,7 @@ class TestBase(unittest.TestCase):
 
         dictliststr = obj4.to_json_string(dictlist)
 
-        self.assertEqual(dictliststr,"[{}, {}, {}]")
+        self.assertEqual(dictliststr, "[{}, {}, {}]")
 
     def test_save_to_file(self):
         """Test for the normal behavior of the save_to_file method"""
