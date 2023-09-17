@@ -100,6 +100,35 @@ class TestBase(unittest.TestCase):
         sqjson = Square.to_json_string(sqdict)
         self.assertEqual(sqjson, content)
 
+    def test_from_json_string(self):
+        """Test for the from_json_string method normal behavior"""
+
+        jsons = '[{"id": 1, "width": 20}, {"height": 10}, {}]'
+
+        dctlist = Base.from_json_string(jsons)
+        self.assertEqual(dctlist[0]["id"], 1)
+        self.assertEqual(dctlist[0]["width"], 20)
+        self.assertEqual(dctlist[1]["height"], 10)
+        self.assertEqual(len(dctlist[2]), 0)
+
+    def test_from_json_string_none_string(self):
+        """Test for the from_json_string method with string of value None"""
+
+        jsons = None
+
+        dctlist = Base.from_json_string(jsons)
+        self.assertEqual(dctlist, [])
+        self.assertEqual(len(dctlist), 0)
+
+    def test_from_json_string_empty_list(self):
+        """Test for the from_json_string method with string of value None"""
+
+        jsons = "[]"
+
+        dctlist = Base.from_json_string(jsons)
+        self.assertEqual(dctlist, [])
+        self.assertEqual(len(dctlist), 0)
+
 
 if __name__ == '__main__':
     unittest.main()
