@@ -2,7 +2,7 @@
 """Module for defining the Base class
 """
 import json
-
+import os
 
 class Base:
     """class that is the base of all other classes
@@ -93,3 +93,24 @@ class Base:
         obj.update(**dictionary)
 
         return obj
+
+    @classmethod
+    def load_from_file(cls):
+        """Reads a list of dictionaries in JSON representation from a file
+
+        Returns:
+            list: list of instances
+        """
+        objlist = []
+        filename = "{}.json".format(cls.__name__)
+
+        if os.path.isfile(filename):
+            with open(filename, encoding="utf-8") as file:
+                jsons = file.read()
+
+            dctlist = cls.from_json_string(jsons)
+            for objdct in dctlist:
+                newobj = cls.create(**objdct)
+                objlist.append(newobj)
+
+            return objlist
