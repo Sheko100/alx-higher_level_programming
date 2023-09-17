@@ -79,3 +79,17 @@ class Base:
             dctlist = json.loads(json_string)
 
         return dctlist
+
+    @classmethod
+    def create(cls, **dictionary):
+        """Creates an instance with all attributes already set"""
+
+        clsname = cls.__name__
+
+        if clsname == "Rectangle":
+            obj = cls(2, 1)
+        elif clsname == "Square":
+            obj = cls(2)
+        obj.update(**dictionary)
+
+        return obj
