@@ -149,5 +149,25 @@ class TestBase(unittest.TestCase):
         self.assertEqual(sq1.y, sqdct["y"])
 
 
+    def test_load_from_file(self):
+        """Test for the load_from_file method normal behavior"""
+
+        objlist = Rectangle.load_from_file()
+        rectn = 0
+        objcount = len(objlist)
+        for obj in objlist:
+            rectn += 1
+            for objrest in objlist[rectn:]:
+                self.assertNotEqual(obj.id, objrest.id)
+
+        objlist = Square.load_from_file()
+        sqn = 0
+        objcount = len(objlist)
+        for obj in objlist:
+            sqn += 1
+            for objrest in objlist[sqn:]:
+                self.assertNotEqual(obj.id, objrest.id)
+
+
 if __name__ == '__main__':
     unittest.main()
