@@ -10,7 +10,7 @@ from models.square import Square
 class TestBase(unittest.TestCase):
     """Tests for the Base class"""
 
-    def test_implicit_object_id(self):
+    def test_base_implicit_object_id(self):
         """Test that the object id is assigned appropriately
         if it is implicit
         """
@@ -128,6 +128,25 @@ class TestBase(unittest.TestCase):
         dctlist = Base.from_json_string(jsons)
         self.assertEqual(dctlist, [])
         self.assertEqual(len(dctlist), 0)
+
+    def test_create(self):
+        """Test for the create method normal behavior"""
+
+        rectdct = {"id": 55, "width": 100, "height": 70, "x": 10, "y": 1}
+        sqdct = {"id": 88, "size": 75, "x": 20, "y": 25}
+
+        rect1 = Rectangle.create(**rectdct)
+        self.assertEqual(rect1.id, rectdct["id"])
+        self.assertEqual(rect1.width, rectdct["width"])
+        self.assertEqual(rect1.height, rectdct["height"])
+        self.assertEqual(rect1.x, rectdct["x"])
+        self.assertEqual(rect1.y, rectdct["y"])
+
+        sq1 = Rectangle.create(**sqdct)
+        self.assertEqual(sq1.id, sqdct["id"])
+        self.assertEqual(sq1.size, sqdct["size"])
+        self.assertEqual(sq1.x, sqdct["x"])
+        self.assertEqual(sq1.y, sqdct["y"])
 
 
 if __name__ == '__main__':
