@@ -61,3 +61,21 @@ class Base:
         jsons = cls.to_json_string(dictlist)
         with open(filename, mode="w", encoding="utf-8") as file:
             file.write(jsons)
+
+    @staticmethod
+    def from_json_string(json_string):
+        """Deserializes JSON string to a list of dictionaries
+
+        Args:
+            json_string (str): a JSON string
+
+        Returns:
+            list: a list of dictionaries if the string is legit or
+            empty list if the string is None or empty list
+        """
+
+        dctlist = []
+        if json_string is not None:
+            dctlist = json.loads(json_string)
+
+        return dctlist
