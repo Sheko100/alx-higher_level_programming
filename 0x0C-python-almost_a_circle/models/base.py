@@ -182,17 +182,49 @@ class Base:
     @staticmethod
     def draw(list_rectangles, list_squares):
         """Draws rectangles and squares on a new window"""
-
-        rect = list_rectangles[0].to_dictionary()
-
+        colors = ["red", "yellow", "blue", "green", "brown"]
         window = turtle.Screen()
-        turtle.speed(1)
-        turtle.setpos(rect["x"], rect["y"])
-        turtle.forward(rect["width"])
-        turtle.setheading(270)
-        turtle.forward(rect["height"])
-        turtle.setheading(180)
-        turtle.forward(rect["width"])
-        turtle.home()
+        i = 0
+        for rect in list_rectangles:
+            if i == 5:
+                i = 0
+            rectpen = turtle.RawPen(window)
+            rectpen.up()
+            rectpen.color("black", colors[i])
+            rectpen.begin_fill()
+            rectpen.speed(1)
+            rectpen.hideturtle()
+            rectpen.setpos(rect.x, rect.y)
+            rectpen.down()
+            rectpen.forward(rect.width)
+            rectpen.setheading(270)
+            rectpen.forward(rect.height)
+            rectpen.setheading(180)
+            rectpen.forward(rect.width)
+            rectpen.setheading(90)
+            rectpen.forward(rect.height)
+            rectpen.end_fill()
+            i += 1
+
+        for sq in list_squares:
+            if i == 5:
+                i = 0
+            sqpen = turtle.RawPen(window)
+            sqpen.up()
+            sqpen.color("black", colors[i])
+            sqpen.begin_fill()
+            sqpen.speed(1)
+            sqpen.hideturtle()
+            sqpen.setpos(sq.x, sq.y)
+            sqpen.down()
+            sqpen.forward(sq.size)
+            sqpen.setheading(270)
+            sqpen.forward(sq.size)
+            sqpen.setheading(180)
+            sqpen.forward(sq.size)
+            sqpen.setheading(90)
+            sqpen.forward(sq.size)
+            sqpen.end_fill()
+            i += 1
 
         turtle.exitonclick()
