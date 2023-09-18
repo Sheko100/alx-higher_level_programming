@@ -148,7 +148,6 @@ class TestBase(unittest.TestCase):
         self.assertEqual(sq1.x, sqdct["x"])
         self.assertEqual(sq1.y, sqdct["y"])
 
-
     def test_load_from_file(self):
         """Test for the load_from_file method normal behavior"""
 
@@ -161,6 +160,50 @@ class TestBase(unittest.TestCase):
                 self.assertNotEqual(obj.id, objrest.id)
 
         objlist = Square.load_from_file()
+        sqn = 0
+        objcount = len(objlist)
+        for obj in objlist:
+            sqn += 1
+            for objrest in objlist[sqn:]:
+                self.assertNotEqual(obj.id, objrest.id)
+
+    def test_save_to_file_csv(self):
+        """Test for save_to_file method"""
+
+        rect1 = Rectangle(10, 5, 4, 2, 55)
+        rect2 = Rectangle(20, 10, 5, 7, 88)
+        sq1 = Square(10, 4, 2, 55)
+        sq2 = Square(20, 5, 7, 88)
+
+        rectlist = [rect1, rect2]
+        sqlist = [sq1, sq2]
+        rectdict = [rect1.to_dictionary(), rect2.to_dictionary()]
+        sqdict = [sq1.to_dictionary(), sq2.to_dictionary()]
+
+        Rectangle.save_to_file_csv(rectlist)
+        with open("Rectangle.csv") as file:
+            content = file.read()
+        csvstring = "55,10,5,4,2\n88,20,10,5,7\n"
+        self.assertEqual(csvstring, content)
+
+        Square.save_to_file_csv(sqlist)
+        with open("Square.csv") as file:
+            content = file.read()
+        csvstring = "55,10,4,2\n88,20,5,7\n"
+        self.assertEqual(csvstring, content)
+
+    def test_load_from_file_csv(self):
+        """Test the load_from_file_csv method"""
+
+        objlist = Rectangle.load_from_file_csv()
+        rectn = 0
+        objcount = len(objlist)
+        for obj in objlist:
+            rectn += 1
+            for objrest in objlist[rectn:]:
+                self.assertNotEqual(obj.id, objrest.id)
+
+        objlist = Square.load_from_file_csv()
         sqn = 0
         objcount = len(objlist)
         for obj in objlist:
