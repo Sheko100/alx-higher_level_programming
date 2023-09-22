@@ -41,7 +41,6 @@ class Square(Rectangle):
 
         self.width = value
         self.height = value
-        #self.__size = value
 
     def __str__(self):
         name = self.__class__.__name__
