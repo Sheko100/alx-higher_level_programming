@@ -116,7 +116,7 @@ class Base:
                 newobj = cls.create(**objdct)
                 objlist.append(newobj)
 
-            return objlist
+        return objlist
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
