@@ -20,7 +20,7 @@ if (argsCount > 0) {
             const chara = JSON.parse(body);
             await console.log(chara.name);
           }
-	});
+        });
       }
     }
   });
