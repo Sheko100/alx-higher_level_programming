@@ -21,7 +21,7 @@ if (argsCount > 3) {
       secBig = num;
     }
   }
-  console.log(`secBig: ${secBig}`);
+  console.log(secBig);
 } else {
   console.log('0');
 }
