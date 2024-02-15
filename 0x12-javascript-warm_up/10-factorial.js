@@ -2,14 +2,13 @@
 
 const firstArg = process.argv[2];
 const n = parseInt(firstArg);
-
 function fac (num) {
   let res = num;
 
   if (num <= 0) {
-    return 0;
+    return 1;
   }
-  res += fac(num - 1);
+  res *= fac(num - 1);
   return res;
 }
 
