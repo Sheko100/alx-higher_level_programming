@@ -1,7 +1,7 @@
 #!/usr/bin/node
 
 const argsCount = process.argv.length;
-let msg = 'No arguemnt';
+let msg = 'No argument';
 
 if (argsCount === 3) {
   msg = 'Argument found';
