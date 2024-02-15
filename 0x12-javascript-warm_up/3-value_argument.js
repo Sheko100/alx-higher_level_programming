@@ -2,7 +2,7 @@
 
 const firstArg = process.argv[2];
 
-let msg = 'No arguemnt';
+let msg = 'No argument';
 if (firstArg) {
   msg = firstArg;
 }
