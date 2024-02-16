@@ -12,6 +12,7 @@ if __name__ == '__main__':
 
     db = MySQLdb.connect(
             host='localhost',
+            port=3306,
             user=username,
             password=pwd,
             database=db_name
@@ -22,3 +23,6 @@ if __name__ == '__main__':
     rows = cur.fetchall()
     for row in rows:
         print(row)
+
+    cur.close()
+    db.close()
