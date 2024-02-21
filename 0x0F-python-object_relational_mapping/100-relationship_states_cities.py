@@ -23,5 +23,5 @@ if __name__ == '__main__':
     session.add(city)
     session.commit()
 
-    print(state.cities)
+    print('hello')
     session.close()
