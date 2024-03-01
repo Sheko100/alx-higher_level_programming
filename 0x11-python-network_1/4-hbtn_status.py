@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Module that sends a HTTP request to a specific URL using urllib
+"""Module that sends a HTTP request to a specific URL using requests
 """
 
 import requests
