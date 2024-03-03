@@ -11,7 +11,7 @@ def find_peak(list_of_integers):
         list_of_integers: list of unsorted integers integers
     """
     length = len(list_of_integers)
-    i = 1
+    i = 0
 
     if length > 2:
         while i < length:
