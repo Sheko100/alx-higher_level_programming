@@ -21,5 +21,5 @@ if __name__ == "__main__":
                 print("No result")
             elif "id" in json and "name" in json:
                 print("[{}] {}".format(json["id"], json["name"]))
-        except requests.exceptions.JSONDecodeError:
+        except ValueError:
             print("Not a valid JSON")
