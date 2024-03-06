@@ -15,5 +15,5 @@ if __name__ == "__main__":
             headers = res.headers
             data = res.read()
             print(data.decode('utf-8'))
-    except urllib.erro.HTTPError as err:
+    except urllib.error.HTTPError as err:
         print("Error code: {}".format(err.code))
