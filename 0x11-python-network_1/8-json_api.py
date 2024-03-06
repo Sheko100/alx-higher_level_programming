@@ -20,6 +20,6 @@ if __name__ == "__main__":
             if len(json) == 0:
                 print("No result")
             elif "id" in json and "name" in json:
-                print("[{}], {}".format(json["id"], json["name"]))
+                print("[{}] {}".format(json["id"], json["name"]))
         except requests.exceptions.JSONDecodeError:
             print("Not a valid JSON")
