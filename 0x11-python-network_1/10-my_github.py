@@ -23,3 +23,5 @@ if __name__ == "__main__":
                 print("{}".format(json["id"]))
         except ValueError:
             print("Not a valid JSON")
+    elif res.status_code == 401:
+        print(None)
